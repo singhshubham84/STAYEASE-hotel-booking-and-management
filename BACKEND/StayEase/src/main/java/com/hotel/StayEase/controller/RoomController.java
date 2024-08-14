@@ -2,7 +2,6 @@ package com.hotel.StayEase.controller;
 
 
 import com.hotel.StayEase.DAO.Response;
-import com.hotel.StayEase.service.interfac.IBookingService;
 import com.hotel.StayEase.service.interfac.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;

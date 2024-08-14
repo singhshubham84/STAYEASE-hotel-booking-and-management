@@ -28,7 +28,6 @@ public class AwsS3Service {
     private String awsS3SecretKey;
 
     public String saveImageToS3(MultipartFile photo) {
-        String s3LocationImage = null;
 
         try {
 
