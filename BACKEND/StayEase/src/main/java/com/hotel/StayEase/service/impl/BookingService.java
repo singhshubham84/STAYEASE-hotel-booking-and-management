@@ -25,8 +25,6 @@ public class BookingService implements IBookingService {
     @Autowired
     private BookingRepository bookingRepository;
     @Autowired
-    private IRoomService roomService;
-    @Autowired
     private RoomRepository roomRepository;
     @Autowired
     private UserRepository userRepository;
