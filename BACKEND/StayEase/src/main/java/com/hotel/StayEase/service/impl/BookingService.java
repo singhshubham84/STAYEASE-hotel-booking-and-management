@@ -14,7 +14,6 @@ import com.hotel.StayEase.repo.BookingRepository;
 import com.hotel.StayEase.repo.RoomRepository;
 import com.hotel.StayEase.repo.UserRepository;
 import com.hotel.StayEase.service.interfac.IBookingService;
-import com.hotel.StayEase.service.interfac.IRoomService;
 import com.hotel.StayEase.utils.Utils;
 
 import java.util.List;

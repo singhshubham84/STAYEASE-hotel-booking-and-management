@@ -5,7 +5,6 @@ import com.hotel.StayEase.DAO.Response;
 import com.hotel.StayEase.DAO.RoomDAO;
 import com.hotel.StayEase.entity.Room;
 import com.hotel.StayEase.exception.OurException;
-import com.hotel.StayEase.repo.BookingRepository;
 import com.hotel.StayEase.repo.RoomRepository;
 import com.hotel.StayEase.service.AwsS3Service;
 import com.hotel.StayEase.service.interfac.IRoomService;
