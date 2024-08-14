@@ -53,6 +53,15 @@ public class UserController {
         Response response = userService.getUserBookingHistory(userId);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
-
+    
+    @PutMapping("/updateProfile/{userId}")
+    @PreAuthorize("hasAuthority('USER')")
+    public ResponseEntity<Response> updateUser(@PathVariable String userId,
+                                               @RequestParam(value = "name", required = false) String name,
+                                               @RequestParam(value = "phoneNumber", required = false) String phoneNumber                                           
+    ) {
+        Response response = userService.updateUser(userId, name,phoneNumber);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
 
 }

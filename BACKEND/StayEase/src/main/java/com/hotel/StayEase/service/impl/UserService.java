@@ -196,4 +196,29 @@ public class UserService implements IUserService {
         }
         return response;
     }
+    @Override
+    public Response updateUser(String userId,String name,String phoneNumber) {
+        Response response = new Response();
+
+        try {
+            User user = userRepository.findById(Long.valueOf(userId)).orElseThrow(() -> new OurException("User Not Found"));
+            if (name != null) user.setName(name);
+            if (phoneNumber != null) user.setPhoneNumber(phoneNumber);
+
+            User updatedUser = userRepository.save(user);
+            UserDAO userDAO = Utils.mapUserEntityToUserDAO(updatedUser);
+
+            response.setStatusCode(200);
+            response.setMessage("successful");
+            response.setUser(userDAO);
+
+        } catch (OurException e) {
+            response.setStatusCode(404);
+            response.setMessage(e.getMessage());
+        } catch (Exception e) {
+            response.setStatusCode(500);
+            response.setMessage("Error saving a user " + e.getMessage());
+        }
+        return response;
+    }
 }
