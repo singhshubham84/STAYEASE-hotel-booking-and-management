@@ -1,5 +1,6 @@
 package com.hotel.StayEase.service.impl;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
