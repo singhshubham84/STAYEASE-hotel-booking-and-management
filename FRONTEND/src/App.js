@@ -2,9 +2,12 @@
 
 // src/App.js
 import React from 'react';
+
+import AdminProfile from './component/admin/AdminProfile';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './component/common/Navbar';
 import FooterComponent from './component/common/Footer';
+import "../src/index.css";
 import LoginPage from './component/auth/LoginPage';
 import RegisterPage from './component/auth/RegisterPage';
 import HomePage from './component/home/HomePage';
@@ -19,8 +22,9 @@ import ManageBookingsPage from './component/admin/ManageBookingsPage';
 import EditBookingPage from './component/admin/EditBookingPage';
 import ProfilePage from './component/profile/ProfilePage';
 import EditProfilePage from './component/profile/EditProfilePage';
+import About from "./component/About/About"
 import { ProtectedRoute, AdminRoute } from './service/guard';
-
+import EditAdmin from './component/admin/EditAdmin';
 function App() {
   return (
     <BrowserRouter>
@@ -30,11 +34,14 @@ function App() {
           <Routes>
             {/* Public Routes */}
             <Route exact path="/home" element={<HomePage />} />
+            <Route path="/admin/profile" element={<AdminProfile />} />
+          
             <Route exact path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/about" element={<About />} />
             <Route path="/rooms" element={<AllRoomsPage />} />
             <Route path="/find-booking" element={<FindBookingPage />} />
-
+            <Route path="/admin/edit-profile" element={<EditProfilePage />} />
             {/* Protected Routes */}
             <Route path="/room-details-book/:roomId"
               element={<ProtectedRoute element={<RoomDetailsBookingPage />} />}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApiService from '../../service/ApiService';
 import Pagination from '../common/Pagination';
@@ -26,11 +26,7 @@ const ManageBookingsPage = () => {
         fetchBookings();
     }, []);
 
-    useEffect(() => {
-        filterBookings(searchTerm);
-    }, [searchTerm, bookings]);
-
-    const filterBookings = (term) => {
+    const filterBookings = useCallback((term) => {
         if (term === '') {
             setFilteredBookings(bookings);
         } else {
@@ -40,7 +36,11 @@ const ManageBookingsPage = () => {
             setFilteredBookings(filtered);
         }
         setCurrentPage(1);
-    };
+    }, [bookings]);
+
+    useEffect(() => {
+        filterBookings(searchTerm);
+    }, [searchTerm, filterBookings]);
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);

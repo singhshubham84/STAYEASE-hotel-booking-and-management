@@ -30,6 +30,19 @@ export default class ApiService {
 
 
     /*  This is  to get the user profile */
+    static async updateUserProfile(userData) {
+        try {
+            const response = await axios.put(`${this.BASE_URL}/users/update-profile`, userData, {
+                headers: this.getHeader()
+            });
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
+    
+
+
     static async getAllUsers() {
         const response = await axios.get(`${this.BASE_URL}/users/all`, {
             headers: this.getHeader()
@@ -189,5 +202,7 @@ export default class ApiService {
         const role = localStorage.getItem('role')
         return role === 'USER'
     }
+
+    
 }
 // export default new ApiService();

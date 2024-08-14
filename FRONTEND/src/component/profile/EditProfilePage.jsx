@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApiService from '../../service/ApiService';
+import './Profile.css';
 
 const EditProfilePage = () => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState(null);
+    const [updatedUser, setUpdatedUser] = useState({
+        name: '',
+        email: '',
+        phoneNumber: ''
+    });
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -12,6 +18,11 @@ const EditProfilePage = () => {
             try {
                 const response = await ApiService.getUserProfile();
                 setUser(response.user);
+                setUpdatedUser({
+                    name: response.user.name,
+                    email: response.user.email,
+                    phoneNumber: response.user.phoneNumber
+                });
             } catch (error) {
                 setError(error.message);
             }
@@ -19,6 +30,23 @@ const EditProfilePage = () => {
 
         fetchUserProfile();
     }, []);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setUpdatedUser({
+            ...updatedUser,
+            [name]: value
+        });
+    };
+
+    const handleUpdateProfile = async (updatedUserData) => {
+        try {
+            await ApiService.updateUserProfile(updatedUserData);
+            // Optionally, show success message or redirect
+        } catch (error) {
+            setError(error.message);
+        }
+    };
 
     const handleDeleteProfile = async () => {
         if (!window.confirm('Are you sure you want to delete your account?')) {
@@ -38,10 +66,45 @@ const EditProfilePage = () => {
             {error && <p className="error-message">{error}</p>}
             {user && (
                 <div className="profile-details">
-                    <p><strong>Name:</strong> {user.name}</p>
-                    <p><strong>Email:</strong> {user.email}</p>
-                    <p><strong>Phone Number:</strong> {user.phoneNumber}</p>
-                    <button className="delete-profile-button" onClick={handleDeleteProfile}>Delete Profile</button>
+                    <label>
+                        Name:
+                        <input
+                            type="text"
+                            name="name"
+                            value={updatedUser.name}
+                            onChange={handleInputChange}
+                        />
+                    </label>
+                    <label>
+                        Email:
+                        <input
+                            type="email"
+                            name="email"
+                            value={updatedUser.email}
+                            onChange={handleInputChange}
+                        />
+                    </label>
+                    <label>
+                        Phone Number:
+                        <input
+                            type="text"
+                            name="phoneNumber"
+                            value={updatedUser.phoneNumber}
+                            onChange={handleInputChange}
+                        />
+                    </label>
+                    <button
+                        className="update-profile-button"
+                        onClick={() => handleUpdateProfile(updatedUser)}
+                    >
+                        Update Profile
+                    </button>
+                    <button
+                        className="delete-profile-button"
+                        onClick={handleDeleteProfile}
+                    >
+                        Delete Profile
+                    </button>
                 </div>
             )}
         </div>

@@ -1,0 +1,197 @@
+.facilities_area {
+    position: relative;
+    z-index: 1;
+    background: #04091e;
+    overflow: hidden;
+    padding: 60px 50px; 
+}
+
+.facilities_area .overlay {
+    background: url("../../asset/images/facilites_bg.jpg") no-repeat scroll center 0 / cover;
+    opacity: 0.15;
+}
+
+.section_title {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.section_title h2 {
+    font-size: 36px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.section_title p {
+    font-size: 18px; 
+    font-weight: 500 !important;
+    color: #b7b7b7;
+    max-width: 600px;
+    margin: 0 auto; 
+}
+
+
+
+
+
+
+
+.facilities_item .sec_h4 i {
+    color: #FFD700; 
+    font-size: 30px;
+    line-height: 38px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 20px;
+}
+.facilities_item {
+    border: 1px solid #777777;
+    border-radius: 10px;
+    background-color: rgba(249, 249, 255, 0.102);
+    padding: 30px;
+    color: #fff;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+    text-align: center; 
+}
+
+.facilities_item:hover {
+    background-color: rgba(249, 249, 255, 0.2);
+    transform: translateY(-10px); 
+}
+
+.facilities_item h4 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+}
+
+
+
+
+.facilities_item h4 i {
+    color: #FFD700; 
+    font-size: 28px; 
+}
+
+.facilities_item p {
+    font-size: 18px; 
+    font-weight: 500;
+    line-height: 1.6;
+    color: #fdfdfd;
+}
+
+.row.mb_30 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.col-lg-4, .col-md-6 {
+    flex: 0 0 32%; 
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 768px) {
+    .col-lg-4, .col-md-6 {
+        flex: 0 0 48%; 
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-lg-4, .col-md-6 {
+        flex: 0 0 100%; 
+    }
+}
+
+
+.vacation-offer-block {
+    background-color: #34495e; 
+    padding: 60px 0;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.vacation-offer-bgbanner {
+    background: url('../../asset/images/room.jpg') no-repeat center center/cover;
+    padding: 60px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+
+.vacation-offer-bgbanner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0) 80%);
+    border-radius: 10px;
+}
+
+.vacation-offer-details {
+    position: relative; 
+    z-index: 2;
+}
+
+.vacation-offer-details h1 {
+    color: #ffffff; 
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    line-height: 1.2; 
+}
+
+.vacation-offer-details h4 {
+    color: #dcdde1; 
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.vacation-offer-details .btn-default {
+    background-color: #e74c3c; 
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+@media (max-width: 767px) {
+    .vacation-offer-details h4 {
+        font-size: 1rem;
+        line-height: 1.4;
+        word-wrap: break-word; 
+        white-space: normal; 
+    }
+}
+.vacation-offer-details .btn-default {
+    background-color: #e74c3c; /* Bright red button */
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+.vacation-offer-details .btn-default:hover {
+    background-color: #c0392b; 
+}
+

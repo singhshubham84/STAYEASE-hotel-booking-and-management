@@ -150,7 +150,7 @@ const RoomDetailsPage = () => {
       <img src={roomPhotoUrl} alt={roomType} className="room-details-image" />
       <div className="room-details-info">
         <h3>{roomType}</h3>
-        <p>Price: ₹ {roomPrice} / night</p>
+        <p>Price: ${roomPrice} / night</p>
         <p>{description}</p>
       </div>
       {bookings && bookings.length > 0 && (
@@ -221,7 +221,7 @@ const RoomDetailsPage = () => {
         )}
         {totalPrice > 0 && (
           <div className="total-price">
-            <p>Total Price: ₹ {totalPrice}</p>
+            <p>Total Price: ${totalPrice}</p>
             <p>Total Guests: {totalGuests}</p>
             <button onClick={acceptBooking} className="accept-booking">Accept Booking</button>
           </div>

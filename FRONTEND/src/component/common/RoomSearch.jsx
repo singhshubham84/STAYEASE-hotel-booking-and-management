@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ApiService from '../../service/ApiService';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 const RoomSearch = ({ handleSearchResult }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -61,16 +62,28 @@ const RoomSearch = ({ handleSearchResult }) => {
     <section>
       <div className="search-container">
         <div className="search-field">
-          <label>Check-in Date</label>
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="Select Check-in Date"
-          />
+          <label>
+          <FontAwesomeIcon icon={faCalendarAlt} className="calendar-icon" />
+            Arrival
+         
+          </label>
+
+          <div className="date-picker-wrapper">
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              dateFormat="dd/MM/yyyy"
+              placeholderText="Select Check-in Date"
+              className="date-picker-input"
+            />
+          
+          </div>
         </div>
         <div className="search-field">
-          <label>Check-out Date</label>
+          <label>
+          <FontAwesomeIcon icon={faCalendarAlt} className="calendar-icon" />
+          Departure
+          </label>
           <DatePicker
             selected={endDate}
             onChange={(date) => setEndDate(date)}
@@ -93,7 +106,7 @@ const RoomSearch = ({ handleSearchResult }) => {
           </select>
         </div>
         <button className="home-search-button" onClick={handleInternalSearch}>
-          Search Rooms
+          Check Availability
         </button>
       </div>
       {error && <p className="error-message">{error}</p>}

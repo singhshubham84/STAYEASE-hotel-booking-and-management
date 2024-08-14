@@ -18,16 +18,16 @@
     color: #007F86;
 }
 
-/* General Navbar Styling */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 70px 25px 75px;
-    background-color: white;
+    z-index: 1000; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
     font-size: 20px;
+    background-color: #343a40; 
 }
 
 .navbar-brand a {
@@ -37,33 +37,104 @@
     text-decoration: none;
 }
 
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
 .navbar-ul {
     list-style: none;
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap;
 }
 
 .navbar-ul li {
     margin-left: 20px;
+    color: #efeeee;
+    font-weight: bold;
 }
 
 .navbar-ul li a {
     text-decoration: none;
-    color: #666;
-    transition: color 0.5s;
+    font-weight: bold;
+    font-family: 'YourCustomFont', sans-serif;
+    color: #f6f3f3;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .navbar-ul li a:hover {
-    color: #FF007F;
-    color: #FF7F50;
+    color: #13e7eb;
 }
 
 .navbar-ul li a.active {
-    color: #FF7F50;
+    color: #13e7eb;
 }
+
+/* Toggle Icon */
+.navbar-toggler-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+}
+
+.navbar-toggler-icon-bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 4px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .navbar-brand {
+        margin-bottom: 0;
+    }
+
+    .navbar-ul {
+        flex-direction: column;
+        background-color: #343a40;
+        display: none;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-ul.open {
+        display: flex;
+    }
+
+    .navbar-ul li {
+        margin: 10px 0;
+    }
+
+    .navbar-toggler-icon {
+        display: flex;
+    }
+}
+
+
+
+/* @media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column; 
+        text-align: center; 
+    }
+} */
+
 
 .auth-container {
     max-width: 400px;
@@ -178,7 +249,7 @@ button[type="submit"]:hover {
 /* HEADER */
 /* Header overlay */
 
-.overlay {
+/* .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -194,34 +265,96 @@ button[type="submit"]:hover {
     transform: translate(-50%, -50%);
     color: #fff;
     justify-content: flex-start;
-}
+} */
 
 /* The header banner */
 .header-banner {
-    /* background-image: url("../public/assets/images/hotel.webp"); */
+    background-image: url("./asset/images/hotel2.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
-    height: 80vh;
-}
+    width: 100%;
+    height: 80vh; 
+    background-attachment: fixed; 
+    overflow: hidden; 
+  }
 
-.header-banner {
-    position: relative;
-    height: 500px;
-}
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+  }
+  
+  /* Centering and styling text within the overlay */
+  .overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center; /* Center-align text */
+    padding: 0 20px; /* Add padding to ensure text does not touch edges */
+  }
+  
+  /* Main heading styling */
+  .overlay-content h1 {
+    font-size: 3rem; /* Larger font size */
+    font-weight: bold; /* Bold text */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Shadow for better readability */
+  }
+  
+  /* Subheading styling */
+  .overlay-content h4 {
+    font-size: 1.5rem; /* Adjusted font size for subheading */
+    font-weight: lighter; /* Slightly lighter font weight */
+    margin: 10px 0 0; /* Add some margin above */
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header-banner {
+      height: 60vh; /* Adjust height for smaller screens */
+    }
+    .overlay-content {
+      font-size: 0.9rem; /* Reduce font size on smaller screens */
+      padding: 0 10px; /* Adjust padding for smaller screens */
+    }
+    .overlay-content h1 {
+      font-size: 2.5rem; /* Adjust font size for smaller screens */
+    }
+    .overlay-content h4 {
+      font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+  }
+  .hotel-color{
+    color: #237677;
+  }
 .header-banner h1 {
     font-size: 50px;
     color: #f8f3f3;
 }
 
-.header-banner h3 {
+.header-banner h4 {
     color: #f8f3f3;
     font-size: 30px;
 }
 
 
 /*ROOM SEARCH STARTS HERE*/
+
+
+
+
+
 
 .search-container {
     display: flex;
@@ -230,36 +363,40 @@ button[type="submit"]:hover {
     align-items: center;
     margin-bottom: 10px;
     padding: 20px;
-    margin-left: 45px;
+    margin: 45px;
+    background-color: #022345e5; /* Light background color for the container */
+    border: 2px solid #eaeff0; /* Border around the container */
+    border-radius: 10px; /* Rounded corners for the container */
+    box-shadow:  5px 10px rgba(143, 144, 146, 0.1); /* Soft shadow for depth */
 }
-
 
 .search-field {
     flex: 0 0 calc(25% - 10px);
     margin: 10px;
     padding: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #065f85;
     border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #b8ddd3; /* White background for individual fields */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
 }
 
 .search-field label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
-    color: #666;
+    font-weight: 600;
+    color: #0e0e0e;
 }
 
 .search-field input,
 .search-field select {
     width: 100%;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 9px;
     border: 1px solid #ccc;
     font-size: 16px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+    background-color: #f9f9f9; 
 }
-
 
 .home-search-button {
     margin-left: 10px;
@@ -272,12 +409,30 @@ button[type="submit"]:hover {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Shadow for button */
 }
 
 .home-search-button:hover {
-    background-color: rgb(34, 80, 128)
+    background-color: rgb(34, 80, 128);
 }
 
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-field {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .home-search-button {
+        width: 100%;
+        text-align: center;
+    }
+}
 
 
 
@@ -344,7 +499,20 @@ button[type="submit"]:hover {
     background-color: rgb(34, 80, 128)
 }
 
+
+
+
+
 /*View all rooms home section*/
+.featured-room-heading {
+    text-align: center;
+    text-decoration:  2px;
+    font-size: 50px; /* Large size for the heading */
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Bold text */
+    color: #050505; /* Custom color for the heading */
+    margin: 30px 0; /* Space above and below the heading */
+}
+
 .view-rooms-home {
     margin: 15px 0px 0px 4.6rem;
     font-size: 20px;
@@ -703,9 +871,79 @@ p {
 
 /* ADMIN HOME STYLE */
 .admin-page {
+    position: relative;
+    display: flex;
+    height: 100vh;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: -1; /* Ensure it's behind other content */
+    opacity: 0.5; /* Adjust opacity as needed */
+}
+
+.admin-container {
+    display: flex;
+    width: 100%;
+}
+
+
+.admin-name {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.sidebar {
+    width: 250px; /* Adjust width as needed */
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap for better spacing */
+}
+
+.sidebar-heading {
+    font-size: 1.5em;
+    color: #007F86;
+    margin-bottom: 20px; /* Spacing between heading and buttons */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.sidebar-button {
+    padding: 15px;
+    font-size: 1em;
+    color: white;
+    background-color: #007F86;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.sidebar-button:hover {
+    background-color: rgb(34, 80, 128);
+}
+
+.admin-content {
+    flex: 1;
+    padding: 20px;
     max-width: 800px;
     margin: 50px auto;
-    padding: 20px;
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -720,27 +958,7 @@ p {
     color: #007F86;
 }
 
-.admin-actions {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
 
-.admin-button {
-    padding: 15px 30px;
-    font-size: 1em;
-    color: white;
-    background-color: #007F86;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.admin-button:hover {
-    background-color: rgb(34, 80, 128);
-}
 
 
 
@@ -1200,3 +1418,36 @@ h2 {
     }
 
 }
+
+    /*Image Gallery*/
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .gallery-image {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .gallery-image:hover {
+    transform: scale(1.18);
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-image {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery-image {
+      width: 100%;
+    }
+  }
+  
