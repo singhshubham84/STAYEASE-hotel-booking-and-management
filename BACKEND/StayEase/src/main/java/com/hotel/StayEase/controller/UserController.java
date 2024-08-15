@@ -55,7 +55,7 @@ public class UserController {
     }
     
     @PutMapping("/update/{userId}")
-
+    @PreAuthorize("hasAuthority('USER')")
     public ResponseEntity<Response> updateUser(@PathVariable Long userId,
                                                @RequestParam(value = "name", required = false) String name,
                                                @RequestParam(value = "phoneNumber", required = false) String phoneNumber                                           
