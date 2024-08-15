@@ -45,6 +45,7 @@ const ProfilePage = () => {
                     <h3>My Profile Details</h3>
                     <p><strong>ID:</strong> {user.id}</p>
                     <p><strong>Name:</strong> {user.name}</p>
+                    <p><strong>Age:</strong> {user.age}</p>
                     <p><strong>Email:</strong> {user.email}</p>
                     <p><strong>Phone Number:</strong> {user.phoneNumber}</p>
                 </div>

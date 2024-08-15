@@ -39,9 +39,9 @@ const AdminPage = () => {
                     <button className="sidebar-button profile-button" onClick={() => navigate('/admin/profile')}>
                         <FaUser className="button-icon" /> Profile
                     </button>
-                    <button className="sidebar-button" onClick={() => navigate('/admin/edit-profile')}>
+                    {/* <button className="sidebar-button" onClick={() => navigate('/admin/edit-profile')}>
                     <i className="fa fa-edit"></i> Edit Profile
-                </button>
+                </button> */}
                 <button className="sidebar-button " onClick={handleLogout}>
                     <i className="fa fa-sign-out"></i> Logout
                 </button>

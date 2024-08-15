@@ -9,7 +9,8 @@ function RegisterPage() {
         name: '',
         email: '',
         password: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        age:''
     });
 
     const [errorMessage, setErrorMessage] = useState('');
@@ -21,8 +22,8 @@ function RegisterPage() {
     };
 
     const validateForm = () => {
-        const { name, email, password, phoneNumber } = formData;
-        if (!name || !email || !password || !phoneNumber) {
+        const { name, email, password, phoneNumber,age } = formData;
+        if (!name || !email || !password || !phoneNumber || !age)  {
             return false;
         }
         return true;
@@ -46,7 +47,8 @@ function RegisterPage() {
                     name: '',
                     email: '',
                     password: '',
-                    phoneNumber: ''
+                    phoneNumber: '',
+                    age:''
                 });
                 setSuccessMessage('User registered successfully');
                 setTimeout(() => {
@@ -70,6 +72,10 @@ function RegisterPage() {
                 <div className="form-group">
                     <label>Name:</label>
                     <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
+                </div>
+                <div className="form-group">
+                    <label>Age:</label>
+                    <input type="age" name="age" value={formData.age} onChange={handleInputChange} required />
                 </div>
                 <div className="form-group">
                     <label>Email:</label>
