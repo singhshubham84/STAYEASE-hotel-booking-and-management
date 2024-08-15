@@ -20,7 +20,6 @@ public interface IUserService {
 
     Response getMyInfo(String email);
 
-
-	Response updateUser(Long userId, String name, String phoneNumber);
+	Response updateUser(Long userId, String name, String age, String phoneNumber);
 
 }

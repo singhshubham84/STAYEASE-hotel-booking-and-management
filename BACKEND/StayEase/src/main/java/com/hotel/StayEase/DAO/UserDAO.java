@@ -6,6 +6,7 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDAO {
@@ -14,6 +15,7 @@ public class UserDAO {
     private String email;
     private String name;
     private String phoneNumber;
+    private String age;
     private String role;
     private List<BookingDAO> bookings = new ArrayList<>();
 

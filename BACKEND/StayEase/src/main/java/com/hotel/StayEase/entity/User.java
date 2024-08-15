@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+
 @Data
 @Entity
 @Table(name = "users")
@@ -26,12 +27,17 @@ public class User implements UserDetails {
 
     @NotBlank(message = "Name is required")
     private String name;
+    
+    
 
     @NotBlank(message = "Phone Number is required")
     private String phoneNumber;
 
     @NotBlank(message = "Password is required")
     private String password;
+    
+    @NotBlank(message = "Age is required")
+    private String age;
 
     private String role;
 
@@ -67,4 +73,10 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", name=" + name + ", age=" + age + ", phoneNumber="
+				+ phoneNumber + ", password=" + password + ", role=" + role + ", bookings=" + bookings + "]";
+	}
 }

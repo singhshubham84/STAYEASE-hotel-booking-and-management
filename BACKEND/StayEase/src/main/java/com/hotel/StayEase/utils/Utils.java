@@ -33,6 +33,7 @@ public class Utils {
 
         userDAO.setId(user.getId());
         userDAO.setName(user.getName());
+        userDAO.setAge(user.getAge());
         userDAO.setEmail(user.getEmail());
         userDAO.setPhoneNumber(user.getPhoneNumber());
         userDAO.setRole(user.getRole());
@@ -110,6 +111,7 @@ public class Utils {
 
         userDAO.setId(user.getId());
         userDAO.setName(user.getName());
+        userDAO.setAge(user.getAge());
         userDAO.setEmail(user.getEmail());
         userDAO.setPhoneNumber(user.getPhoneNumber());
         userDAO.setRole(user.getRole());

@@ -197,12 +197,13 @@ public class UserService implements IUserService {
         return response;
     }
     @Override
-    public Response updateUser(Long userId,String name,String phoneNumber) {
+    public Response updateUser(Long userId,String name,String age,String phoneNumber) {
         Response response = new Response();
 
         try {
             User user = userRepository.findById(userId).orElseThrow(() -> new OurException("User Not Found"));
             if (name != null) user.setName(name);
+            if (age != null) user.setAge(age);
             if (phoneNumber != null) user.setPhoneNumber(phoneNumber);
 
             User updatedUser = userRepository.save(user);

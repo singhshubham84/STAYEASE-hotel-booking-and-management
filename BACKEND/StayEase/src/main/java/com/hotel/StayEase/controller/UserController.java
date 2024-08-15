@@ -58,9 +58,10 @@ public class UserController {
     @PreAuthorize("hasAuthority('USER')")
     public ResponseEntity<Response> updateUser(@PathVariable Long userId,
                                                @RequestParam(value = "name", required = false) String name,
+                                               @RequestParam(value = "age", required = false) String age,
                                                @RequestParam(value = "phoneNumber", required = false) String phoneNumber                                           
     ) {
-        Response response = userService.updateUser(userId, name,phoneNumber);
+        Response response = userService.updateUser(userId, name,age,phoneNumber);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
