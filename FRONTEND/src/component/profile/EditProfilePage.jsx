@@ -8,7 +8,8 @@ const EditProfilePage = () => {
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState({
         name: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        age:''
     });
 
     const [user, setUser] = useState(null);
@@ -22,6 +23,7 @@ const EditProfilePage = () => {
 
                 setUserDetails({
                     name: response.user.name,
+                    age: response.user.age,
                     phoneNumber: response.user.phoneNumber
                 });
             } catch (error) {
@@ -44,6 +46,7 @@ const EditProfilePage = () => {
         try {
             const formData = new FormData();
             formData.append('name', userDetails.name);
+            formData.append('age', userDetails.age);
             formData.append('phoneNumber', userDetails.phoneNumber);
 
            const result= await ApiService.updateUser(userId,formData);
@@ -85,6 +88,15 @@ const EditProfilePage = () => {
                             type="text"
                             name="name"
                             value={userDetails.name}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label>
+                        Age:
+                        <input
+                            type="text"
+                            name="age"
+                            value={userDetails.age}
                             onChange={handleChange}
                         />
                     </label>
