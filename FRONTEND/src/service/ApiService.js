@@ -26,21 +26,20 @@ export default class ApiService {
         return response.data
     }
 
+
     /***USERS */
-
-
     /*  This is  to get the user profile */
-    static async updateUserProfile(userData) {
-        try {
-            const response = await axios.put(`${this.BASE_URL}/users/update-profile`, userData, {
-                headers: this.getHeader()
-            });
-            return response.data;
-        } catch (error) {
-            throw error;
-        }
+    static async updateUser(userId, formData) {
+
+        const result = await axios.put(`${this.BASE_URL}/users/update/${userId}`, formData, {
+            headers: {
+                ...this.getHeader(),
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        return result.data;
     }
-    
+
 
 
     static async getAllUsers() {
@@ -203,6 +202,6 @@ export default class ApiService {
         return role === 'USER'
     }
 
-    
+
 }
 // export default new ApiService();

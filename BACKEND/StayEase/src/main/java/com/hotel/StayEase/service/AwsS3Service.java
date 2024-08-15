@@ -18,7 +18,6 @@ import java.io.InputStream;
 @Service
 public class AwsS3Service {
 
-    //    private final String bucketName = "phegon-hotel-images";
     private final String bucketName = "stayease-hotel-images";
 
     @Value("${aws.s3.access.key}")

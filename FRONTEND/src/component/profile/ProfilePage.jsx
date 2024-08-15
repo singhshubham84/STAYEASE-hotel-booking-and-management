@@ -29,7 +29,7 @@ const ProfilePage = () => {
     };
 
     const handleEditProfile = () => {
-        navigate('/edit-profile');
+        navigate(`/edit-profile/${user.id}`);
     };
 
     return (
@@ -43,6 +43,8 @@ const ProfilePage = () => {
             {user && (
                 <div className="profile-details">
                     <h3>My Profile Details</h3>
+                    <p><strong>ID:</strong> {user.id}</p>
+                    <p><strong>Name:</strong> {user.name}</p>
                     <p><strong>Email:</strong> {user.email}</p>
                     <p><strong>Phone Number:</strong> {user.phoneNumber}</p>
                 </div>

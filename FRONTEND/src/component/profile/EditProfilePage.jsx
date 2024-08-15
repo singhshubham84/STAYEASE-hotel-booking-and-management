@@ -1,51 +1,63 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import ApiService from '../../service/ApiService';
 import './Profile.css';
 
 const EditProfilePage = () => {
-    const [user, setUser] = useState(null);
-    const [error, setError] = useState(null);
-    const [updatedUser, setUpdatedUser] = useState({
+    const { userId } = useParams();
+    const navigate = useNavigate();
+    const [userDetails, setUserDetails] = useState({
         name: '',
-        email: '',
         phoneNumber: ''
     });
-    const navigate = useNavigate();
+
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
-                const response = await ApiService.getUserProfile();
-                setUser(response.user);
-                setUpdatedUser({
+                const response = await ApiService.getUser(userId);
+
+                setUserDetails({
                     name: response.user.name,
-                    email: response.user.email,
                     phoneNumber: response.user.phoneNumber
                 });
             } catch (error) {
-                setError(error.message);
+                setError(error.response?.data?.message || error.message);
             }
         };
 
         fetchUserProfile();
-    }, []);
+    }, [userId]);
 
-    const handleInputChange = (e) => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
-        setUpdatedUser({
-            ...updatedUser,
-            [name]: value
-        });
+        setUserDetails(prevState => ({
+            ...prevState,
+            [name]: value,
+        }));
     };
 
-    const handleUpdateProfile = async (updatedUserData) => {
+    const handleUpdate = async () => {
         try {
-            await ApiService.updateUserProfile(updatedUserData);
-            // Optionally, show success message or redirect
-        } catch (error) {
-            setError(error.message);
+            const formData = new FormData();
+            formData.append('name', userDetails.name);
+            formData.append('phoneNumber', userDetails.phoneNumber);
+
+           const result= await ApiService.updateUser(userId,formData);
+           if (result.statusCode === 200) {
+            setSuccess('Profile updated successfully.');
+            
+            setTimeout(() => {
+                setSuccess('');
+                navigate('/profile');
+            }, 2000);
         }
+    } catch (error) {
+        setError(error.response?.data?.message || error.message);
+    }
     };
 
     const handleDeleteProfile = async () => {
@@ -64,24 +76,16 @@ const EditProfilePage = () => {
         <div className="edit-profile-page">
             <h2>Edit Profile</h2>
             {error && <p className="error-message">{error}</p>}
-            {user && (
+            {success && <p className="success-message">{success}</p>}
+           
                 <div className="profile-details">
                     <label>
                         Name:
                         <input
                             type="text"
                             name="name"
-                            value={updatedUser.name}
-                            onChange={handleInputChange}
-                        />
-                    </label>
-                    <label>
-                        Email:
-                        <input
-                            type="email"
-                            name="email"
-                            value={updatedUser.email}
-                            onChange={handleInputChange}
+                            value={userDetails.name}
+                            onChange={handleChange}
                         />
                     </label>
                     <label>
@@ -89,13 +93,13 @@ const EditProfilePage = () => {
                         <input
                             type="text"
                             name="phoneNumber"
-                            value={updatedUser.phoneNumber}
-                            onChange={handleInputChange}
+                            value={userDetails.phoneNumber}
+                            onChange={handleChange}
                         />
                     </label>
                     <button
                         className="update-profile-button"
-                        onClick={() => handleUpdateProfile(updatedUser)}
+                        onClick={() => handleUpdate(userDetails)}
                     >
                         Update Profile
                     </button>
@@ -106,9 +110,10 @@ const EditProfilePage = () => {
                         Delete Profile
                     </button>
                 </div>
-            )}
+            
         </div>
     );
+   
 };
 
 export default EditProfilePage;

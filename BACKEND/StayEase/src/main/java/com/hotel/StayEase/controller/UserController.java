@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{userId}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('USER')")
     public ResponseEntity<Response> deleteUSer(@PathVariable("userId") String userId) {
         Response response = userService.deleteUser(userId);
         return ResponseEntity.status(response.getStatusCode()).body(response);
@@ -54,9 +54,9 @@ public class UserController {
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
     
-    @PutMapping("/updateProfile/{userId}")
-    @PreAuthorize("hasAuthority('USER')")
-    public ResponseEntity<Response> updateUser(@PathVariable String userId,
+    @PutMapping("/update/{userId}")
+
+    public ResponseEntity<Response> updateUser(@PathVariable Long userId,
                                                @RequestParam(value = "name", required = false) String name,
                                                @RequestParam(value = "phoneNumber", required = false) String phoneNumber                                           
     ) {

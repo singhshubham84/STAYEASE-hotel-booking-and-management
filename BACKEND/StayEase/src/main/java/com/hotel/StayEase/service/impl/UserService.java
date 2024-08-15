@@ -197,11 +197,11 @@ public class UserService implements IUserService {
         return response;
     }
     @Override
-    public Response updateUser(String userId,String name,String phoneNumber) {
+    public Response updateUser(Long userId,String name,String phoneNumber) {
         Response response = new Response();
 
         try {
-            User user = userRepository.findById(Long.valueOf(userId)).orElseThrow(() -> new OurException("User Not Found"));
+            User user = userRepository.findById(userId).orElseThrow(() -> new OurException("User Not Found"));
             if (name != null) user.setName(name);
             if (phoneNumber != null) user.setPhoneNumber(phoneNumber);
 

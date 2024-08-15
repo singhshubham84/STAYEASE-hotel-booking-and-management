@@ -49,7 +49,7 @@ function App() {
             <Route path="/profile"
               element={<ProtectedRoute element={<ProfilePage />} />}
             />
-            <Route path="/edit-profile"
+            <Route path="/edit-profile/:userId"
               element={<ProtectedRoute element={<EditProfilePage />} />}
             />
 
