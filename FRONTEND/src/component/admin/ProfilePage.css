@@ -1,24 +1,53 @@
-.profile-page {
-    max-width: 800px;
+.admin-profile {
+    max-width: 900px;
     margin: 50px auto;
     padding: 20px;
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: #dcd8d8;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-header h1 {
+    font-size: 2em;
+    color: #007F86;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.profile-picture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details {
+    flex: 1;
+}
+
+.profile-details p {
+    font-size: 1.1em;
+    margin: 10px 0;
 }
 
 .profile-actions {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 20px;
 }
 
-.edit-profile-button,
-.change-password-button,
-.delete-profile-button,
-.logout-button {
+.action-button {
     padding: 10px 20px;
     font-size: 1em;
     color: white;
@@ -26,36 +55,47 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     transition: background-color 0.3s ease;
 }
 
-.edit-profile-button:hover,
-.change-password-button:hover,
-.delete-profile-button:hover,
-.logout-button:hover {
+.action-button:hover {
     background-color: rgb(34, 80, 128);
 }
 
+.action-icon {
+    font-size: 1.2em;
+}
+
+.delete-button {
+    background-color: #f44336;
+}
+
+.delete-button:hover {
+    background-color: #c62828;
+}
+
+.error-message {
+    color: red;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 20px;
+}
 .profile-details {
     margin-top: 20px;
     text-align: left;
 }
 
-.error-message {
-    color: red;
-    font-size: 1em;
-}
-.logout-button {
-    margin-top: auto;
-    background-color: #f44336; 
-    color: white;
-}
 
-.logout-button:hover {
-    background-color: #c62828; 
-}
 
-.error-message {
-    color: red;
-    font-size: 1em;
+.profile-picture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    background-color: #2f3b45; /* To match the background color of your icon */
+    padding: 20px; /* Adjust padding for better centering if necessary */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

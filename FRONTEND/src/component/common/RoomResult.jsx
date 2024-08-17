@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import ApiService from '../../service/ApiService';
-
+import './Roomresult.css';
 const RoomResult = ({ roomSearchResults }) => {
     const navigate = useNavigate(); // Initialize useNavigate hook
     const isAdmin = ApiService.isAdmin();
@@ -13,9 +13,9 @@ const RoomResult = ({ roomSearchResults }) => {
                         <div key={room.id} className="room-list-item">
                             <img className='room-list-item-image' src={room.roomPhotoUrl} alt={room.roomType} />
                             <div className="room-details">
-                                <h3>{room.roomType}</h3>
-                                <p>Price: ${room.roomPrice} / night</p>
-                                <p>Description: {room.roomDescription}</p>
+                            <h3>{room.roomType}</h3>
+    <p className="price">Price: ₹ {room.roomPrice} / night</p>
+    <p className="description">Description: {room.roomDescription}</p>
                             </div>
 
                             <div className='book-now-div'>
@@ -31,7 +31,7 @@ const RoomResult = ({ roomSearchResults }) => {
                                         className="book-now-button"
                                         onClick={() => navigate(`/room-details-book/${room.id}`)} // Navigate to book room with room ID
                                     >
-                                        View/Book Now
+                                       Book Now
                                     </button>
                                 )}
                             </div>

@@ -1,0 +1,170 @@
+.find-booking-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.find-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../asset/images/picly.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; 
+}
+
+.overlay-find h2 {
+    color: #f0f8f9;
+    font-size: 38px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+p {
+    margin: 5px 0;
+}
+
+.overlay-find {
+    background: rgba(14, 14, 14, 0.6); 
+    padding: 80px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1; 
+    max-width: 500px; 
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.find-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.find-container input[type="text"] {
+    width: calc(150% - 60px); 
+    height: 29px;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.find-container button {
+    margin-top: 30px;
+    padding: 10px 40px;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    background-color: #007F86;
+    color: white;
+    cursor: pointer;
+}
+
+.find-container button:hover {
+    background-color: #0056b3;
+}
+
+.booking-details {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1200px; /* Wider container for large screens */
+    box-sizing: border-box; 
+    max-height: 90vh;
+    overflow-y: auto; 
+}
+
+/* Booking Details Styling */
+.booking-details h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    border-bottom: 2px solid #007F86;
+    padding-bottom: 5px;
+}
+
+.booking-details p {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.booking-details hr {
+    border: 0;
+    height: 1px;
+    background-color: #eee;
+    margin: 20px 0;
+}
+
+.booking-details img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Scrollbar */
+.booking-details::-webkit-scrollbar {
+    width: 12px;
+}
+
+.booking-details::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.booking-details::-webkit-scrollbar-thumb {
+    background: #007F86;
+    border-radius: 10px;
+}
+
+.booking-details::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .booking-details {
+        padding: 15px;
+        max-height: 70vh; 
+    }
+
+    .booking-details h3 {
+        font-size: 22px;
+    }
+
+    .booking-details p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-details {
+        padding: 15px;
+        max-height: 50vh; 
+    }
+
+    .booking-details h3 {
+        font-size: 20px;
+    }
+
+    .booking-details p {
+        font-size: 14px;
+    }
+}

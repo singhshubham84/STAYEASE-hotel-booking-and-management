@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ApiService from '../../service/ApiService'; // Assuming your service is in a file called ApiService.js
-
+import './findbooking.css';
 const FindBookingPage = () => {
     const [confirmationCode, setConfirmationCode] = useState(''); // State variable for confirmation code
     const [bookingDetails, setBookingDetails] = useState(null); // State variable for booking details
@@ -25,17 +25,20 @@ const FindBookingPage = () => {
 
     return (
         <div className="find-booking-page">
-            <h2>Find Booking</h2>
-            <div className="search-container">
-                <input
-                    required
-                    type="text"
-                    placeholder="Enter your booking confirmation code"
-                    value={confirmationCode}
-                    onChange={(e) => setConfirmationCode(e.target.value)}
-                />
-                <button onClick={handleSearch}>Find</button>
-            </div>
+          <div className="find-background"></div>
+    <div className="overlay-find">
+        <h2>Find Booking</h2>
+        <div className="find-container">
+            <input
+                required
+                type="text"
+                placeholder="Enter your booking confirmation code..."
+                value={confirmationCode}
+                onChange={(e) => setConfirmationCode(e.target.value)}
+            />
+            <button onClick={handleSearch}>Find</button>
+        </div>
+    </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {bookingDetails && (
                 <div className="booking-details">
@@ -46,19 +49,19 @@ const FindBookingPage = () => {
                     <p>Num Of Adults: {bookingDetails.numOfAdults}</p>
                     <p>Num Of Children: {bookingDetails.numOfChildren}</p>
 
-                    <br />
+                    
                     <hr />
-                    <br />
-                    <h3>Booker Detials</h3>
+                 
+                    <h3>Booker Details</h3>
                     <div>
                         <p> Name: {bookingDetails.user.name}</p>
                         <p> Email: {bookingDetails.user.email}</p>
                         <p> Phone Number: {bookingDetails.user.phoneNumber}</p>
                     </div>
 
-                    <br />
+                  
                     <hr />
-                    <br />
+                  
                     <h3>Room Details</h3>
                     <div>
                         <p> Room Type: {bookingDetails.room.roomType}</p>

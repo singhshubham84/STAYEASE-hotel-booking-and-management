@@ -9,8 +9,7 @@ function RegisterPage() {
         name: '',
         email: '',
         password: '',
-        phoneNumber: '',
-        age:''
+        phoneNumber: ''
     });
 
     const [errorMessage, setErrorMessage] = useState('');
@@ -22,17 +21,25 @@ function RegisterPage() {
     };
 
     const validateForm = () => {
-        const { name, email, password, phoneNumber,age } = formData;
-        if (!name || !email || !password || !phoneNumber || !age)  {
-            return false;
+        const { name, email, password, phoneNumber } = formData;
+        if (!name || !email || !password || !phoneNumber) {
+            return 'Please fill all the fields.';
         }
+
+        // Validate phone number
+        const phoneNumberPattern = /^\d{10}$/;
+        if (!phoneNumberPattern.test(phoneNumber)) {
+            return 'Phone number must be exactly 10 digits.';
+        }
+
         return true;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!validateForm()) {
-            setErrorMessage('Please fill all the fields.');
+        const validationResult = validateForm();
+        if (validationResult !== true) {
+            setErrorMessage(validationResult);
             setTimeout(() => setErrorMessage(''), 5000);
             return;
         }
@@ -47,8 +54,7 @@ function RegisterPage() {
                     name: '',
                     email: '',
                     password: '',
-                    phoneNumber: '',
-                    age:''
+                    phoneNumber: ''
                 });
                 setSuccessMessage('User registered successfully');
                 setTimeout(() => {
@@ -57,7 +63,7 @@ function RegisterPage() {
                 }, 3000);
             }
         }
-         catch (error) {
+        catch (error) {
             setErrorMessage(error.response?.data?.message || error.message);
             setTimeout(() => setErrorMessage(''), 5000);
         }
@@ -72,10 +78,6 @@ function RegisterPage() {
                 <div className="form-group">
                     <label>Name:</label>
                     <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
-                </div>
-                <div className="form-group">
-                    <label>Age:</label>
-                    <input type="age" name="age" value={formData.age} onChange={handleInputChange} required />
                 </div>
                 <div className="form-group">
                     <label>Email:</label>

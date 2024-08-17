@@ -92,7 +92,7 @@ const EditProfilePage = () => {
                         />
                     </label>
                     <label>
-                        Age:
+                        Name:
                         <input
                             type="text"
                             name="age"

@@ -4,7 +4,7 @@ import Pagination from '../common/Pagination';
 import RoomResult from '../common/RoomResult';
 import RoomSearch from '../common/RoomSearch';
 
-
+import './allroom.css';
 
 const AllRoomsPage = () => {
   const [rooms, setRooms] = useState([]);

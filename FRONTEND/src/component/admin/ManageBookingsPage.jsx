@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ApiService from '../../service/ApiService';
 import Pagination from '../common/Pagination';
 
+
 const ManageBookingsPage = () => {
     const [bookings, setBookings] = useState([]);
     const [filteredBookings, setFilteredBookings] = useState([]);
@@ -53,39 +54,47 @@ const ManageBookingsPage = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className='bookings-container'>
-            <h2>All Bookings</h2>
-            <div className='search-div'>
-                <label>Filter by Booking Number:</label>
-                <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    placeholder="Enter booking number"
+        <div className='manage-bookings-page'>
+            <div className='content-container'>
+                <h2 className='page-title'>Manage Bookings</h2>
+                <div className='search-div'>
+                    <input
+                        type="text"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                        placeholder="Search by Booking Number"
+                        className='search-input'
+                    />
+                </div>
+
+             <div className="booking-result">
+                    {currentBookings.map((booking) => (
+                        <div key={booking.id} className="booking-cards">
+                            <div className="booking-infos">
+                                <div className="booking-headers">
+                                    <p className="booking-codes">#{booking.bookingConfirmationCode}</p>
+                                    <button
+                                        className="manage-booking-buttons"
+                                        onClick={() => navigate(`/admin/edit-booking/${booking.bookingConfirmationCode}`)}
+                                    >Manage</button>
+                                </div>
+                                <div className="booking-detail">
+                                    <p><strong>Check-In:</strong> {booking.checkInDate}</p>
+                                    <p><strong>Check-Out:</strong> {booking.checkOutDate}</p>
+                                    <p><strong>Guests:</strong> {booking.totalNumOfGuest}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <Pagination
+                    roomsPerPage={bookingsPerPage}
+                    totalRooms={filteredBookings.length}
+                    currentPage={currentPage}
+                    paginate={paginate}
                 />
             </div>
-
-            <div className="booking-results">
-                {currentBookings.map((booking) => (
-                    <div key={booking.id} className="booking-result-item">
-                        <p><strong>Booking Code:</strong> {booking.bookingConfirmationCode}</p>
-                        <p><strong>Check In Date:</strong> {booking.checkInDate}</p>
-                        <p><strong>Check out Date:</strong> {booking.checkOutDate}</p>
-                        <p><strong>Total Guests:</strong> {booking.totalNumOfGuest}</p>
-                        <button
-                            className="edit-room-button"
-                            onClick={() => navigate(`/admin/edit-booking/${booking.bookingConfirmationCode}`)}
-                        >Manage Booking</button>
-                    </div>
-                ))}
-            </div>
-
-            <Pagination
-                roomsPerPage={bookingsPerPage}
-                totalRooms={filteredBookings.length}
-                currentPage={currentPage}
-                paginate={paginate}
-            />
         </div>
     );
 };

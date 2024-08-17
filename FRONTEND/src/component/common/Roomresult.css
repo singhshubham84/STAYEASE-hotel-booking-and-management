@@ -1,0 +1,137 @@
+/* Room Results Styling */
+.room-results {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.room-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.room-list-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-list-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.room-list-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.room-details {
+    padding: 15px;
+}
+
+.room-details h3 {
+    font-size: 20px;
+    color: #007F86;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.room-details p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.room-details .price {
+    font-weight: 700;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.room-details .description {
+    font-weight: 600;
+    font-size: 16px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #666;
+}
+
+/* Buttons */
+.book-now-div {
+    padding: 15px;
+    text-align: center;
+}
+
+.edit-room-button, .book-now-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px;
+}
+
+.edit-room-button {
+    background-color: #007F86;
+}
+
+.edit-room-button:hover {
+    background-color: #005f6b;
+    transform: scale(1.05);
+}
+
+.book-now-button {
+    background-color: #034f4fda;
+}
+
+.book-now-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .room-list-item {
+        width: 100%;
+        max-width: none;
+    }
+
+    .room-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .room-list-item-image {
+        height: 150px;
+    }
+
+    .room-details h3 {
+        font-size: 18px;
+    }
+
+    .room-details p {
+        font-size: 14px;
+    }
+
+    .room-details .price {
+        font-size: 16px;
+    }
+
+    .room-details .description {
+        font-size: 14px;
+    }
+}

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import AdminProfile from './AdminProfile';
+
 import ApiService from '../../service/ApiService';
+import { useNavigate} from "react-router-dom";
 import { FaUser } from 'react-icons/fa';
 const AdminPage = () => {
     const [adminName, setAdminName] = useState('');
     const navigate = useNavigate();
     const handleLogout = () => {
-        ApiService.logout(); // Call logout method from ApiService
-        navigate('/home');  // Redirect to home or login page after logout
+        ApiService.logout(); 
+        navigate('/home');  
     };
     useEffect(() => {
         const fetchAdminName = async () => {
@@ -39,9 +41,7 @@ const AdminPage = () => {
                     <button className="sidebar-button profile-button" onClick={() => navigate('/admin/profile')}>
                         <FaUser className="button-icon" /> Profile
                     </button>
-                    {/* <button className="sidebar-button" onClick={() => navigate('/admin/edit-profile')}>
-                    <i className="fa fa-edit"></i> Edit Profile
-                </button> */}
+               
                 <button className="sidebar-button " onClick={handleLogout}>
                     <i className="fa fa-sign-out"></i> Logout
                 </button>
@@ -49,8 +49,8 @@ const AdminPage = () => {
 
                 </div>
                 <div className="admin-content">
-                    <h1 className="welcome-message">Welcome, Admin</h1>
-                    {/* Additional content can be added here */}
+                <AdminProfile/>
+               
                 </div>
             </div>
         </div>

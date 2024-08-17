@@ -75,9 +75,11 @@ const ManageRoomPage = () => {
               </option>
             ))}
           </select>
+          <div className="add-room-button-container">
           <button className='add-room-button' onClick={() => navigate('/admin/add-room')}>
             Add Room
           </button>
+          </div>
         </div>
       </div>
 
