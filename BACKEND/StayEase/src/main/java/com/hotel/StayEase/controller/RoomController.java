@@ -1,6 +1,5 @@
 package com.hotel.StayEase.controller;
 
-
 import com.hotel.StayEase.DAO.Response;
 import com.hotel.StayEase.service.interfac.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;

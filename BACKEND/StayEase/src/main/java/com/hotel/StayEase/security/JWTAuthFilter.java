@@ -1,6 +1,5 @@
 package com.hotel.StayEase.security;
 
-
 import com.hotel.StayEase.service.CustomUserDetailsService;
 import com.hotel.StayEase.utils.JWTUtils;
 import jakarta.servlet.FilterChain;
@@ -25,7 +24,6 @@ public class JWTAuthFilter extends OncePerRequestFilter {
     private JWTUtils jwtUtils;
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
-
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

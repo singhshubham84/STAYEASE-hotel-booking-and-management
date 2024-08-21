@@ -1,6 +1,5 @@
 package com.hotel.StayEase.DAO;
 
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
